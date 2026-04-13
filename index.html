@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
+/* ===== COLORS ===== */
+:root{
+--green-dark:#0f9d58;
+--green-light:#34d399;
+--text:#1f2a37;
+--bg:#f6faf7;
+}
+
 *{
 margin:0;
 padding:0;
@@ -18,8 +27,8 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f6f9fc;
-color:#1f2a37;
+background:var(--bg);
+color:var(--text);
 }
 
 /* NAV */
@@ -37,23 +46,23 @@ z-index:1000;
 }
 
 nav h1{
-color:#1e88e5;
-font-weight:700;
+color:var(--green-dark);
+font-weight:800;
 letter-spacing:2px;
+font-size:18px;
 }
 
 nav a{
 margin-left:18px;
 text-decoration:none;
-color:#1f2a37;
+color:var(--text);
 font-size:14px;
 opacity:.7;
-font-weight:500;
 }
 
 nav a:hover{
+color:var(--green-dark);
 opacity:1;
-color:#1e88e5;
 }
 
 /* TOP BAR */
@@ -76,7 +85,7 @@ border:1px solid #ddd;
 padding:10px 15px;
 border:none;
 border-radius:30px;
-background:#00c853;
+background:var(--green-dark);
 color:white;
 cursor:pointer;
 font-weight:600;
@@ -89,12 +98,13 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 padding:0 10%;
-background:linear-gradient(135deg,#e3f2fd,#ffffff,#e8f5e9);
+background:linear-gradient(135deg,#e8fff2,#ffffff,#eafff6);
 }
 
 .hero h1{
-font-size:60px;
-font-weight:700;
+font-size:64px;
+font-weight:800;
+line-height:1.1;
 }
 
 .subtitle{
@@ -102,14 +112,15 @@ margin-top:20px;
 max-width:700px;
 line-height:1.7;
 opacity:.75;
-font-size:16px;
+font-size:17px;
 }
 
+/* BUTTON */
 .btn{
 margin-top:30px;
-padding:14px 28px;
+padding:14px 30px;
 border:none;
-background:#1e88e5;
+background:linear-gradient(90deg,var(--green-dark),var(--green-light));
 color:white;
 border-radius:50px;
 cursor:pointer;
@@ -119,7 +130,6 @@ transition:.3s;
 
 .btn:hover{
 transform:translateY(-3px);
-background:#1565c0;
 }
 
 /* SECTIONS */
@@ -128,10 +138,10 @@ padding:120px 10%;
 }
 
 .title{
-font-size:28px;
+font-size:32px;
 margin-bottom:40px;
-font-weight:700;
-color:#1e88e5;
+font-weight:800;
+color:var(--green-dark);
 }
 
 /* GRID */
@@ -144,17 +154,31 @@ gap:25px;
 /* CARD */
 .card{
 background:white;
-padding:30px;
-border-radius:16px;
+padding:28px;
+border-radius:18px;
 box-shadow:0 10px 30px rgba(0,0,0,0.06);
-border-top:4px solid #00c853;
+border-top:4px solid var(--green-light);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
 }
 
 /* ICON */
 .icon{
-font-size:24px;
-color:#1e88e5;
+font-size:26px;
+color:var(--green-dark);
 margin-bottom:12px;
+}
+
+/* IMAGE */
+.img{
+width:100%;
+height:160px;
+border-radius:14px;
+object-fit:cover;
+margin-bottom:15px;
 }
 
 /* CONTACT */
@@ -162,7 +186,7 @@ margin-bottom:12px;
 background:white;
 padding:40px;
 border-radius:20px;
-border-left:6px solid #1e88e5;
+border-left:6px solid var(--green-dark);
 line-height:1.8;
 }
 
@@ -173,11 +197,8 @@ padding:40px;
 opacity:.6;
 }
 
-/* BESTELLEN RESULT */
-#gallery{
-display:none;
-margin-top:30px;
-}
+#gallery{display:none;margin-top:30px;}
+
 </style>
 </head>
 
@@ -190,7 +211,6 @@ margin-top:30px;
 <a href="#home">Home</a>
 <a href="#diensten">Diensten</a>
 <a href="#why">Waarom</a>
-<a href="#schools">Scholen</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
@@ -207,9 +227,9 @@ margin-top:30px;
 <h1>Professionele Schoolfotografie</h1>
 
 <p class="subtitle">
-Maken we herinnering van morgen.<br><br>
-Wij creëren prachtige portretten en groepsfoto’s voor uw school.
-Professioneel, betrouwbaar en zorgeloos.
+Maken we herinneringen van morgen.  
+Wij creëren moderne en professionele schoolfoto’s met een frisse groene stijl.  
+Betrouwbaar, snel en volledig zorgeloos.
 </p>
 
 <button class="btn">Vraag een offerte aan</button>
@@ -222,27 +242,31 @@ Professioneel, betrouwbaar en zorgeloos.
 <div class="grid">
 
 <div class="card">
+<img class="img" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
 <div class="icon"><i class="fa-solid fa-clipboard-list"></i></div>
 <h3>Volledige organisatie</h3>
-<p>Wij verzorgen de volledige planning en registratie per leerling met schoolsystemen.</p>
+<p>Alles wordt professioneel gepland en geïntegreerd met schoolsystemen.</p>
 </div>
 
 <div class="card">
+<img class="img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
 <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
 <h3>Eenvoudig bestelproces</h3>
-<p>Ouders bestellen online met veilige betaling en snelle levering.</p>
+<p>Ouders bestellen online snel en veilig met directe toegang.</p>
 </div>
 
 <div class="card">
+<img class="img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32">
 <div class="icon"><i class="fa-solid fa-camera"></i></div>
 <h3>Uitstekende kwaliteit</h3>
-<p>Professionele camera’s, lichtstudio en eigen nabewerking voor topresultaat.</p>
+<p>Professionele studio apparatuur en moderne nabewerking.</p>
 </div>
 
 <div class="card">
+<img class="img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
 <div class="icon"><i class="fa-solid fa-headset"></i></div>
 <h3>Ondersteuning</h3>
-<p>Wij helpen ouders en scholen voor een vlot en professioneel proces.</p>
+<p>Snelle hulp voor ouders en scholen.</p>
 </div>
 
 </div>
@@ -257,7 +281,7 @@ Professioneel, betrouwbaar en zorgeloos.
 <div class="card">
 <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
 <h3>Betrouwbaarheid</h3>
-<p>Ervaren fotografen met professionele aanpak.</p>
+<p>Professionele fotografen met ervaring in scholen.</p>
 </div>
 
 <div class="card">
@@ -269,50 +293,13 @@ Professioneel, betrouwbaar en zorgeloos.
 <div class="card">
 <div class="icon"><i class="fa-solid fa-star"></i></div>
 <h3>Kwaliteit</h3>
-<p>Premium afdrukken en moderne stijl.</p>
+<p>Premium resultaten met moderne stijl.</p>
 </div>
 
 <div class="card">
 <div class="icon"><i class="fa-solid fa-sliders"></i></div>
 <h3>Flexibel</h3>
 <p>Oplossingen op maat voor elke school.</p>
-</div>
-
-</div>
-</section>
-
-<!-- SCHOOLS -->
-<section id="schools">
-<h2 class="title">Voor scholen</h2>
-
-<div class="card">
-<ul style="line-height:2">
-<li>Digitale en fysieke bestellingen</li>
-<li>Integratie met schoolsystemen</li>
-<li>Persoonlijke leerlingcodes</li>
-<li>Beschikbaar het hele jaar</li>
-<li>AVG-compliant</li>
-</ul>
-</div>
-</section>
-
-<!-- BESTELLEN -->
-<section>
-<h2 class="title">Bestellen</h2>
-
-<div class="card">
-Voer uw code in bovenaan de pagina om toegang te krijgen tot de foto's.
-
-<div id="gallery">
-<h3>Toegang verleend ✔</h3>
-
-<div class="grid">
-<div class="card">Foto 1</div>
-<div class="card">Foto 2</div>
-<div class="card">Foto 3</div>
-</div>
-
-<button class="btn">Bestelling plaatsen</button>
 </div>
 
 </div>
@@ -337,11 +324,10 @@ Nederland
 function checkCode(){
 let code=document.getElementById("code").value;
 
-if(code==="KLAS123" || code==="PHOTO2026"){
-document.getElementById("gallery").style.display="block";
-alert("Toegang verleend ✔");
+if(code==="KLAS123"){
+alert("Toegang OK ✔");
 }else{
-alert("Ongeldige code");
+alert("Foute code");
 }
 }
 </script>
