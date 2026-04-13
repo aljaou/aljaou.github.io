@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klascam - School Photography Studio</title>
+<title>Klascam - Schoolfotografie</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
@@ -17,8 +18,8 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f4efe8;
-color:#1f1f1f;
+background:#f6f9fc;
+color:#1e2a35;
 }
 
 /* NAV */
@@ -29,22 +30,21 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-background:rgba(255,255,255,0.8);
-backdrop-filter:blur(10px);
+padding:18px 60px;
+background:white;
+box-shadow:0 2px 12px rgba(0,0,0,0.05);
 z-index:1000;
 }
 
 nav h1{
-font-size:18px;
-letter-spacing:3px;
-font-weight:600;
+color:#1e88e5;
+letter-spacing:2px;
 }
 
 nav a{
 margin-left:20px;
 text-decoration:none;
-color:#1f1f1f;
+color:#1e2a35;
 font-size:14px;
 opacity:.7;
 }
@@ -59,28 +59,28 @@ height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:flex-start;
 padding:0 10%;
+background:linear-gradient(135deg,#e3f2fd,#ffffff,#e8f5e9);
 }
 
 .hero h2{
 font-size:64px;
 font-weight:600;
-line-height:1.1;
+color:#1e2a35;
 }
 
 .hero p{
 margin-top:20px;
-max-width:600px;
+max-width:650px;
 opacity:.7;
 font-size:16px;
 }
 
 .hero button{
 margin-top:30px;
-padding:14px 28px;
+padding:14px 30px;
 border:none;
-background:#1f1f1f;
+background:#1e88e5;
 color:white;
 border-radius:50px;
 cursor:pointer;
@@ -91,10 +91,12 @@ section{
 padding:120px 10%;
 }
 
+/* TITLES */
 .title{
 font-size:28px;
 margin-bottom:40px;
 font-weight:600;
+color:#1e88e5;
 }
 
 /* GRID */
@@ -107,18 +109,25 @@ gap:25px;
 /* CARD */
 .card{
 background:white;
-padding:25px;
+padding:30px;
 border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+box-shadow:0 10px 30px rgba(0,0,0,0.06);
+border-top:4px solid #00c853;
 }
 
-/* SERVICES STYLE */
-.service{
-border-left:3px solid #1f1f1f;
-padding-left:15px;
+/* ICON */
+.icon{
+font-size:22px;
+margin-bottom:15px;
+color:#1e88e5;
 }
 
-/* TOP BAR CODE */
+/* SERVICE */
+.service p{
+opacity:.8;
+}
+
+/* TOP BAR */
 .topbar{
 position:fixed;
 top:70px;
@@ -138,7 +147,7 @@ border:1px solid #ddd;
 padding:10px 15px;
 border:none;
 border-radius:30px;
-background:#1f1f1f;
+background:#00c853;
 color:white;
 cursor:pointer;
 }
@@ -148,18 +157,14 @@ cursor:pointer;
 background:white;
 padding:40px;
 border-radius:20px;
+border-left:6px solid #1e88e5;
 }
 
 /* FOOTER */
 footer{
 text-align:center;
 padding:40px;
-opacity:.5;
-}
-
-#gallery{
-display:none;
-margin-top:40px;
+opacity:.6;
 }
 </style>
 </head>
@@ -171,118 +176,42 @@ margin-top:40px;
 <h1>KLASCAM</h1>
 <div>
 <a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#work">Work</a>
+<a href="#services">Diensten</a>
+<a href="#process">Werkwijze</a>
+<a href="#schools">Scholen</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
-<!-- BESTELLEN BAR -->
+<!-- TOP BAR BESTELLEN -->
 <div class="topbar">
-<input type="text" id="code" placeholder="Enter code">
+<input id="code" placeholder="Code invoeren">
 <button onclick="checkCode()">Bestellen</button>
 </div>
 
 <!-- HERO -->
 <section id="home" class="hero">
-<h2>Modern School Photography Studio</h2>
+<h2>Schoolfotografie op hoog niveau</h2>
 <p>
-Klascam is een premium schoolfotografie studio gespecialiseerd in moderne leerlingenfoto’s en groepsfoto’s.
-Wij creëren tijdloze beelden met een minimalistische en professionele stijl.
+Klascam levert moderne schoolfotografie met een frisse combinatie van blauw, groen en wit.
+Wij zorgen voor een professionele, rustige en efficiënte fotosessie voor scholen.
 </p>
-<button onclick="document.getElementById('contact').scrollIntoView()">Contact Us</button>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<h2 class="title">About Klascam</h2>
-<div class="card">
-Klascam is a modern photography studio focused on school photography.
-We combine creativity, simplicity and efficiency to deliver high-end visual results for schools across the Netherlands.
-</div>
+<button onclick="document.getElementById('contact').scrollIntoView()">Contact opnemen</button>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
-<h2 class="title">Services</h2>
+<h2 class="title">Onze diensten</h2>
 
 <div class="grid">
 
 <div class="card service">
-<h3>Students Portraits</h3>
-<p>Clean, modern individual portraits with professional lighting.</p>
+<div class="icon"><i class="fa-solid fa-user"></i></div>
+<h3>Leerlingenfoto</h3>
+<p>Individuele portretten met een frisse, moderne stijl en perfecte belichting.</p>
 </div>
 
 <div class="card service">
-<h3>Class Photos</h3>
-<p>Organized group photography with premium composition.</p>
-</div>
-
-<div class="card service">
-<h3>Full School Coverage</h3>
-<p>Complete photography service including planning and delivery.</p>
-</div>
-
-</div>
-</section>
-
-<!-- WORK -->
-<section id="work">
-<h2 class="title">Work</h2>
-<div class="grid">
-<div class="card">Photography Concept</div>
-<div class="card">Class Session</div>
-<div class="card">Portrait Style</div>
-</div>
-</section>
-
-<!-- BESTELLEN -->
-<section id="bestellen">
-<h2 class="title">Bestellen</h2>
-
-<div class="card">
-Enter your student code to access photos.
-
-<div id="gallery">
-<h3>Gallery Access Granted</h3>
-<div class="grid">
-<div class="card">Photo 1</div>
-<div class="card">Photo 2</div>
-<div class="card">Photo 3</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2 class="title">Contact</h2>
-
-<div class="contact">
-Email: info@klascam.nl<br>
-Phone: 06 00000000<br>
-Netherlands
-</div>
-</section>
-
-<footer>
-© 2026 Klascam Studio
-</footer>
-
-<script>
-function checkCode(){
-let code=document.getElementById("code").value;
-
-if(code==="KLAS123"){
-document.getElementById("gallery").style.display="block";
-alert("Access granted");
-}else{
-alert("Invalid code");
-}
-}
-</script>
-
-</body>
-</html>
+<div class="icon"><i class="fa-solid fa-users"></i></div>
+<h3>Groepsfoto</h3>
+<p>
