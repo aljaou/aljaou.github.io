@@ -13,26 +13,56 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
 background:#f6f1e8;
 color:#2b2b2b;
-line-height:1.6;
+}
+
+/* TOP BAR BESTELLEN */
+.topbar{
+position:fixed;
+top:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:center;
+padding:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:2000;
+}
+
+.topbar input{
+padding:10px;
+width:220px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.topbar button{
+margin-left:10px;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#9c744d;
+color:white;
+cursor:pointer;
 }
 
 /* NAV */
 nav{
 position:fixed;
-top:0;
+top:60px;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:15px 40px;
 background:white;
-box-shadow:0 2px 12px rgba(0,0,0,0.06);
-z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:1500;
 }
 
 nav h1{
@@ -47,15 +77,18 @@ color:#333;
 font-weight:500;
 }
 
-/* HERO */
+/* SECTIONS */
+section{
+padding:120px 40px;
+min-height:100vh;
+}
+
 .hero{
-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
 }
 
 .hero h2{
@@ -64,30 +97,24 @@ color:#9c744d;
 }
 
 .hero p{
-margin-top:20px;
 max-width:700px;
+margin-top:20px;
 opacity:.8;
 }
 
 .btn{
-margin-top:30px;
+margin-top:25px;
 padding:12px 26px;
 border:none;
 border-radius:30px;
 background:#9c744d;
 color:white;
 cursor:pointer;
-font-weight:500;
 transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-3px);
-}
-
-/* SECTIONS */
-section{
-padding:90px 40px;
 }
 
 .title{
@@ -97,7 +124,6 @@ color:#9c744d;
 margin-bottom:25px;
 }
 
-/* CARD */
 .card{
 background:white;
 padding:25px;
@@ -106,33 +132,35 @@ box-shadow:0 4px 18px rgba(0,0,0,0.06);
 margin-top:15px;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* INPUT */
-input{
-padding:12px;
-width:260px;
-border-radius:8px;
-border:1px solid #ddd;
+/* BESTELLEN RESULT */
+#result{
+display:none;
+margin-top:40px;
+text-align:center;
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
 background:white;
-margin-top:50px;
 opacity:.7;
 }
 </style>
 </head>
 
 <body>
+
+<!-- TOP BAR BESTELLEN -->
+<div class="topbar">
+<input type="text" id="code" placeholder="Voer code in (KLAS123)">
+<button onclick="checkCode()">Bestellen</button>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -147,31 +175,102 @@ opacity:.7;
 </nav>
 
 <!-- HOME -->
-<section class="hero" id="home">
+<section id="home" class="hero">
 <h2>Moderne Schoolfotografie</h2>
 <p>
-Klascam is een professionele schoolfotografie studio gespecialiseerd in leerlingenfoto’s en groepsfoto’s voor basisscholen en middelbare scholen in Nederland.
-Wij leveren moderne, rustige en tijdloze foto’s met een efficiënte en georganiseerde workflow.
+Klascam levert professionele schoolfotografie voor basisscholen en middelbare scholen in Nederland.
+Wij combineren moderne stijl met snelle en georganiseerde fotosessies.
 </p>
-<button class="btn">Boek een Fotosessie</button>
+<button class="btn" onclick="document.getElementById('bestellen').scrollIntoView()">Start Bestellen</button>
 </section>
 
 <!-- OVER -->
 <section id="over">
 <h2 class="title">Over Klascam</h2>
 <div class="card">
-Klascam is opgericht om schoolfotografie modern, eenvoudig en professioneel te maken.
+Klascam is een moderne schoolfotografie studio gespecialiseerd in leerlingenfoto’s en groepsfoto’s.
 
-Wij begrijpen dat scholen behoefte hebben aan een snelle en betrouwbare service zonder verstoring van lessen.
+Wij zorgen voor een snelle, professionele en georganiseerde fotosessie zonder verstoring van de school.
 
-Onze fotografen werken met professionele apparatuur en zorgen voor consistente kwaliteit bij elke fotosessie.
-
-Onze waarden:
-- Professionaliteit  
-- Snelheid  
-- Kwaliteit  
-- Betrouwbaarheid  
+Onze missie is om hoogwaardige schoolfoto’s te leveren met een moderne en tijdloze uitstraling.
 </div>
 </section>
 
-<!-- DIEN
+<!-- DIENSTEN -->
+<section id="diensten">
+<h2 class="title">Onze Diensten</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Leerlingenfoto</h3>
+<p>Individuele portretfoto’s van elke leerling met professionele belichting.</p>
+</div>
+
+<div class="card">
+<h3>Groepsfoto</h3>
+<p>Klassenfoto’s per groep met een strakke en georganiseerde compositie.</p>
+</div>
+
+<div class="card">
+<h3>Schoolfotografie</h3>
+<p>Complete fotoservice op school met planning en snelle levering.</p>
+</div>
+
+</div>
+</section>
+
+<!-- BESTELLEN -->
+<section id="bestellen">
+<h2 class="title">Bestellen</h2>
+
+<div class="card" style="text-align:center">
+Voer de code in bovenaan de pagina om toegang te krijgen tot de foto's.
+
+<div id="result">
+<h3>Toegang verleend ✔</h3>
+<p>Hier komen de foto's van de leerling.</p>
+
+<div class="grid">
+<div class="card">Foto 1</div>
+<div class="card">Foto 2</div>
+<div class="card">Foto 3</div>
+</div>
+
+<button class="btn">Bestelling plaatsen</button>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Contact</h2>
+
+<div class="card">
+Wil je Klascam boeken voor jouw school?<br><br>
+
+Email: info@klascam.nl<br>
+Telefoon: 06 00000000<br>
+Nederland
+</div>
+</section>
+
+<footer>
+© 2026 Klascam - Schoolfotografie
+</footer>
+
+<script>
+function checkCode(){
+let code=document.getElementById("code").value;
+
+if(code==="KLAS123" || code==="PHOTO2026"){
+document.getElementById("result").style.display="block";
+alert("Toegang verleend!");
+}else{
+alert("Ongeldige code");
+}
+}
+</script>
+
+</body>
+</html>
