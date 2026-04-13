@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klascam - Schoolfotografie</title>
+<title>Klascam - School Photography Studio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -18,8 +18,8 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f6f9fc;
-color:#1e2a35;
+background:#f7fafc;
+color:#1f2a37;
 }
 
 /* NAV */
@@ -39,18 +39,21 @@ z-index:1000;
 nav h1{
 color:#1e88e5;
 letter-spacing:2px;
+font-weight:700;
 }
 
 nav a{
-margin-left:20px;
+margin-left:18px;
 text-decoration:none;
-color:#1e2a35;
+color:#1f2a37;
 font-size:14px;
 opacity:.7;
+font-weight:500;
 }
 
 nav a:hover{
 opacity:1;
+color:#1e88e5;
 }
 
 /* HERO */
@@ -65,37 +68,42 @@ background:linear-gradient(135deg,#e3f2fd,#ffffff,#e8f5e9);
 
 .hero h2{
 font-size:64px;
-font-weight:600;
-color:#1e2a35;
+font-weight:700;
 }
 
 .hero p{
 margin-top:20px;
 max-width:650px;
-opacity:.7;
-font-size:16px;
+opacity:.75;
+line-height:1.7;
 }
 
-.hero button{
+.btn{
 margin-top:30px;
-padding:14px 30px;
+padding:14px 28px;
 border:none;
 background:#1e88e5;
 color:white;
 border-radius:50px;
 cursor:pointer;
+font-weight:600;
+transition:.3s;
 }
 
-/* SECTION */
+.btn:hover{
+transform:translateY(-3px);
+background:#1565c0;
+}
+
+/* SECTIONS */
 section{
 padding:120px 10%;
 }
 
-/* TITLES */
 .title{
-font-size:28px;
+font-size:30px;
 margin-bottom:40px;
-font-weight:600;
+font-weight:700;
 color:#1e88e5;
 }
 
@@ -117,14 +125,9 @@ border-top:4px solid #00c853;
 
 /* ICON */
 .icon{
-font-size:22px;
-margin-bottom:15px;
+font-size:24px;
 color:#1e88e5;
-}
-
-/* SERVICE */
-.service p{
-opacity:.8;
+margin-bottom:12px;
 }
 
 /* TOP BAR */
@@ -150,6 +153,7 @@ border-radius:30px;
 background:#00c853;
 color:white;
 cursor:pointer;
+font-weight:600;
 }
 
 /* CONTACT */
@@ -158,6 +162,7 @@ background:white;
 padding:40px;
 border-radius:20px;
 border-left:6px solid #1e88e5;
+line-height:1.8;
 }
 
 /* FOOTER */
@@ -177,26 +182,26 @@ opacity:.6;
 <div>
 <a href="#home">Home</a>
 <a href="#services">Diensten</a>
-<a href="#process">Werkwijze</a>
+<a href="#workflow">Werkwijze</a>
 <a href="#schools">Scholen</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
-<!-- TOP BAR BESTELLEN -->
+<!-- BESTELLEN BAR -->
 <div class="topbar">
-<input id="code" placeholder="Code invoeren">
+<input id="code" placeholder="Student code">
 <button onclick="checkCode()">Bestellen</button>
 </div>
 
 <!-- HERO -->
 <section id="home" class="hero">
-<h2>Schoolfotografie op hoog niveau</h2>
+<h2>Professionele Schoolfotografie</h2>
 <p>
-Klascam levert moderne schoolfotografie met een frisse combinatie van blauw, groen en wit.
-Wij zorgen voor een professionele, rustige en efficiënte fotosessie voor scholen.
+Klascam is een gespecialiseerd schoolfotografie bedrijf dat moderne, tijdloze en hoogwaardige fotografie levert voor scholen in Nederland.
+Wij zorgen voor een volledig georganiseerde fotosessie zonder stress voor school of leerlingen.
 </p>
-<button onclick="document.getElementById('contact').scrollIntoView()">Contact opnemen</button>
+<button onclick="document.getElementById('contact').scrollIntoView()">Neem contact op</button>
 </section>
 
 <!-- SERVICES -->
@@ -205,13 +210,96 @@ Wij zorgen voor een professionele, rustige en efficiënte fotosessie voor schole
 
 <div class="grid">
 
-<div class="card service">
+<div class="card">
 <div class="icon"><i class="fa-solid fa-user"></i></div>
-<h3>Leerlingenfoto</h3>
-<p>Individuele portretten met een frisse, moderne stijl en perfecte belichting.</p>
+<h3>Leerlingenportretten</h3>
+<p>Individuele professionele portretten met consistente belichting en moderne stijl.</p>
 </div>
 
-<div class="card service">
+<div class="card">
 <div class="icon"><i class="fa-solid fa-users"></i></div>
-<h3>Groepsfoto</h3>
-<p>
+<h3>Groepsfoto’s</h3>
+<p>Gestructureerde klassenfoto’s met een duidelijke en professionele compositie.</p>
+</div>
+
+<div class="card">
+<div class="icon"><i class="fa-solid fa-camera"></i></div>
+<h3>Volledige schoolservice</h3>
+<p>Wij verzorgen alles van planning tot levering en online galerij.</p>
+</div>
+
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section id="workflow">
+<h2 class="title">Onze werkwijze</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon"><i class="fa-solid fa-calendar"></i></div>
+<h3>Planning</h3>
+<p>Wij plannen de fotosessie samen met de school voor minimale verstoring.</p>
+</div>
+
+<div class="card">
+<div class="icon"><i class="fa-solid fa-camera-retro"></i></div>
+<h3>Fotosessie</h3>
+<p>Snelle, rustige en professionele fotoshoot op locatie.</p>
+</div>
+
+<div class="card">
+<div class="icon"><i class="fa-solid fa-cloud"></i></div>
+<h3>Online toegang</h3>
+<p>Ouders krijgen veilige toegang tot foto's via persoonlijke code.</p>
+</div>
+
+</div>
+</section>
+
+<!-- SCHOOLS -->
+<section id="schools">
+<h2 class="title">Voor scholen</h2>
+
+<div class="card">
+Klascam werkt samen met basisscholen en middelbare scholen door heel Nederland.
+Onze aanpak is volledig ontzorgend: wij regelen planning, uitvoering en levering.
+
+Wij zorgen voor een efficiënte workflow zonder stress voor schoolpersoneel.
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Contact</h2>
+
+<div class="contact">
+<strong>Klascam School Photography</strong><br><br>
+
+Email: info@klascam.nl<br>
+Telefoon: 06 00000000<br>
+Locatie: Nederland<br><br>
+
+Wij reageren binnen 24 uur op alle aanvragen.
+</div>
+</section>
+
+<footer>
+© 2026 Klascam - Professional School Photography
+</footer>
+
+<script>
+function checkCode(){
+let code=document.getElementById("code").value;
+
+if(code==="KLAS123" || code==="PHOTO2026"){
+alert("Toegang verleend ✔");
+}else{
+alert("Ongeldige code");
+}
+}
+</script>
+
+</body>
+</html>
