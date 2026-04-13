@@ -3,220 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klascam - Schoolfotografie</title>
+<title>Klascam - School Photography Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Inter',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:#f6f1e8;
-color:#2b2b2b;
-}
-
-/* TOP BAR BESTELLEN */
-.topbar{
-position:fixed;
-top:0;
-width:100%;
-background:#fff;
-display:flex;
-justify-content:center;
-padding:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:2000;
-}
-
-.topbar input{
-padding:10px;
-width:220px;
-border:1px solid #ddd;
-border-radius:8px;
-}
-
-.topbar button{
-margin-left:10px;
-padding:10px 15px;
-border:none;
-border-radius:8px;
-background:#9c744d;
-color:white;
-cursor:pointer;
+background:#f4efe8;
+color:#1f1f1f;
 }
 
 /* NAV */
 nav{
 position:fixed;
-top:60px;
+top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 40px;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:1500;
+padding:20px 60px;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
 nav h1{
-color:#9c744d;
-letter-spacing:2px;
+font-size:18px;
+letter-spacing:3px;
+font-weight:600;
 }
 
 nav a{
-margin-left:18px;
+margin-left:20px;
 text-decoration:none;
-color:#333;
-font-weight:500;
+color:#1f1f1f;
+font-size:14px;
+opacity:.7;
 }
 
-/* SECTIONS */
-section{
-padding:120px 40px;
-min-height:100vh;
+nav a:hover{
+opacity:1;
 }
 
+/* HERO */
 .hero{
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:center;
-text-align:center;
+align-items:flex-start;
+padding:0 10%;
 }
 
 .hero h2{
-font-size:52px;
-color:#9c744d;
+font-size:64px;
+font-weight:600;
+line-height:1.1;
 }
 
 .hero p{
-max-width:700px;
 margin-top:20px;
-opacity:.8;
+max-width:600px;
+opacity:.7;
+font-size:16px;
 }
 
-.btn{
-margin-top:25px;
-padding:12px 26px;
+.hero button{
+margin-top:30px;
+padding:14px 28px;
 border:none;
-border-radius:30px;
-background:#9c744d;
+background:#1f1f1f;
 color:white;
+border-radius:50px;
 cursor:pointer;
-transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+/* SECTION */
+section{
+padding:120px 10%;
 }
 
 .title{
-text-align:center;
-font-size:34px;
-color:#9c744d;
-margin-bottom:25px;
+font-size:28px;
+margin-bottom:40px;
+font-weight:600;
 }
 
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+/* CARD */
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 4px 18px rgba(0,0,0,0.06);
-margin-top:15px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+/* SERVICES STYLE */
+.service{
+border-left:3px solid #1f1f1f;
+padding-left:15px;
 }
 
-/* BESTELLEN RESULT */
-#result{
-display:none;
-margin-top:40px;
-text-align:center;
+/* TOP BAR CODE */
+.topbar{
+position:fixed;
+top:70px;
+right:40px;
+display:flex;
+gap:10px;
+z-index:2000;
 }
 
+.topbar input{
+padding:10px;
+border-radius:30px;
+border:1px solid #ddd;
+}
+
+.topbar button{
+padding:10px 15px;
+border:none;
+border-radius:30px;
+background:#1f1f1f;
+color:white;
+cursor:pointer;
+}
+
+/* CONTACT */
+.contact{
+background:white;
+padding:40px;
+border-radius:20px;
+}
+
+/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
-background:white;
-opacity:.7;
+opacity:.5;
+}
+
+#gallery{
+display:none;
+margin-top:40px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR BESTELLEN -->
-<div class="topbar">
-<input type="text" id="code" placeholder="Voer code in (KLAS123)">
-<button onclick="checkCode()">Bestellen</button>
-</div>
-
 <!-- NAV -->
 <nav>
 <h1>KLASCAM</h1>
 <div>
 <a href="#home">Home</a>
-<a href="#over">Over</a>
-<a href="#diensten">Diensten</a>
-<a href="#bestellen">Bestellen</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
-<!-- HOME -->
+<!-- BESTELLEN BAR -->
+<div class="topbar">
+<input type="text" id="code" placeholder="Enter code">
+<button onclick="checkCode()">Bestellen</button>
+</div>
+
+<!-- HERO -->
 <section id="home" class="hero">
-<h2>Moderne Schoolfotografie</h2>
+<h2>Modern School Photography Studio</h2>
 <p>
-Klascam levert professionele schoolfotografie voor basisscholen en middelbare scholen in Nederland.
-Wij combineren moderne stijl met snelle en georganiseerde fotosessies.
+Klascam is een premium schoolfotografie studio gespecialiseerd in moderne leerlingenfoto’s en groepsfoto’s.
+Wij creëren tijdloze beelden met een minimalistische en professionele stijl.
 </p>
-<button class="btn" onclick="document.getElementById('bestellen').scrollIntoView()">Start Bestellen</button>
+<button onclick="document.getElementById('contact').scrollIntoView()">Contact Us</button>
 </section>
 
-<!-- OVER -->
-<section id="over">
-<h2 class="title">Over Klascam</h2>
+<!-- ABOUT -->
+<section id="about">
+<h2 class="title">About Klascam</h2>
 <div class="card">
-Klascam is een moderne schoolfotografie studio gespecialiseerd in leerlingenfoto’s en groepsfoto’s.
-
-Wij zorgen voor een snelle, professionele en georganiseerde fotosessie zonder verstoring van de school.
-
-Onze missie is om hoogwaardige schoolfoto’s te leveren met een moderne en tijdloze uitstraling.
+Klascam is a modern photography studio focused on school photography.
+We combine creativity, simplicity and efficiency to deliver high-end visual results for schools across the Netherlands.
 </div>
 </section>
 
-<!-- DIENSTEN -->
-<section id="diensten">
-<h2 class="title">Onze Diensten</h2>
+<!-- SERVICES -->
+<section id="services">
+<h2 class="title">Services</h2>
 
 <div class="grid">
 
-<div class="card">
-<h3>Leerlingenfoto</h3>
-<p>Individuele portretfoto’s van elke leerling met professionele belichting.</p>
+<div class="card service">
+<h3>Students Portraits</h3>
+<p>Clean, modern individual portraits with professional lighting.</p>
 </div>
 
-<div class="card">
-<h3>Groepsfoto</h3>
-<p>Klassenfoto’s per groep met een strakke en georganiseerde compositie.</p>
+<div class="card service">
+<h3>Class Photos</h3>
+<p>Organized group photography with premium composition.</p>
 </div>
 
-<div class="card">
-<h3>Schoolfotografie</h3>
-<p>Complete fotoservice op school met planning en snelle levering.</p>
+<div class="card service">
+<h3>Full School Coverage</h3>
+<p>Complete photography service including planning and delivery.</p>
 </div>
 
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+<h2 class="title">Work</h2>
+<div class="grid">
+<div class="card">Photography Concept</div>
+<div class="card">Class Session</div>
+<div class="card">Portrait Style</div>
 </div>
 </section>
 
@@ -224,21 +241,18 @@ Onze missie is om hoogwaardige schoolfoto’s te leveren met een moderne en tijd
 <section id="bestellen">
 <h2 class="title">Bestellen</h2>
 
-<div class="card" style="text-align:center">
-Voer de code in bovenaan de pagina om toegang te krijgen tot de foto's.
+<div class="card">
+Enter your student code to access photos.
 
-<div id="result">
-<h3>Toegang verleend ✔</h3>
-<p>Hier komen de foto's van de leerling.</p>
-
+<div id="gallery">
+<h3>Gallery Access Granted</h3>
 <div class="grid">
-<div class="card">Foto 1</div>
-<div class="card">Foto 2</div>
-<div class="card">Foto 3</div>
+<div class="card">Photo 1</div>
+<div class="card">Photo 2</div>
+<div class="card">Photo 3</div>
+</div>
 </div>
 
-<button class="btn">Bestelling plaatsen</button>
-</div>
 </div>
 </section>
 
@@ -246,28 +260,26 @@ Voer de code in bovenaan de pagina om toegang te krijgen tot de foto's.
 <section id="contact">
 <h2 class="title">Contact</h2>
 
-<div class="card">
-Wil je Klascam boeken voor jouw school?<br><br>
-
+<div class="contact">
 Email: info@klascam.nl<br>
-Telefoon: 06 00000000<br>
-Nederland
+Phone: 06 00000000<br>
+Netherlands
 </div>
 </section>
 
 <footer>
-© 2026 Klascam - Schoolfotografie
+© 2026 Klascam Studio
 </footer>
 
 <script>
 function checkCode(){
 let code=document.getElementById("code").value;
 
-if(code==="KLAS123" || code==="PHOTO2026"){
-document.getElementById("result").style.display="block";
-alert("Toegang verleend!");
+if(code==="KLAS123"){
+document.getElementById("gallery").style.display="block";
+alert("Access granted");
 }else{
-alert("Ongeldige code");
+alert("Invalid code");
 }
 }
 </script>
