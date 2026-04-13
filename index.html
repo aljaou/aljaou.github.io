@@ -3,334 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klascam - Schoolfotografie</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Klascam Schoolfotografie</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== COLORS ===== */
-:root{
---green-dark:#0f9d58;
---green-light:#34d399;
---text:#1f2a37;
---bg:#f6faf7;
-}
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
+font-family:Inter;
 }
 
 body{
-background:var(--bg);
-color:var(--text);
+color:#1e293b;
 }
 
 /* NAV */
+
 nav{
 position:fixed;
 top:0;
 width:100%;
+background:white;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 60px;
-background:white;
-box-shadow:0 2px 12px rgba(0,0,0,0.05);
 z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-nav h1{
-color:var(--green-dark);
-font-weight:800;
-letter-spacing:2px;
-font-size:18px;
+nav h2{
+color:#16a34a;
+font-weight:700;
 }
 
 nav a{
-margin-left:18px;
+margin-left:20px;
 text-decoration:none;
-color:var(--text);
+color:#333;
 font-size:14px;
-opacity:.7;
-}
-
-nav a:hover{
-color:var(--green-dark);
-opacity:1;
-}
-
-/* TOP BAR */
-.topbar{
-position:fixed;
-top:70px;
-right:40px;
-display:flex;
-gap:10px;
-z-index:2000;
-}
-
-.topbar input{
-padding:10px;
-border-radius:30px;
-border:1px solid #ddd;
-}
-
-.topbar button{
-padding:10px 15px;
-border:none;
-border-radius:30px;
-background:var(--green-dark);
-color:white;
-cursor:pointer;
-font-weight:600;
 }
 
 /* HERO */
+
 .hero{
 height:100vh;
+background-image:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b");
+background-size:cover;
+background-position:center;
 display:flex;
-flex-direction:column;
-justify-content:center;
-padding:0 10%;
-background:linear-gradient(135deg,#e8fff2,#ffffff,#eafff6);
+align-items:center;
+padding:0 8%;
+color:white;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.4);
+padding:60px;
+border-radius:20px;
+max-width:600px;
 }
 
 .hero h1{
-font-size:64px;
-font-weight:800;
-line-height:1.1;
+font-size:52px;
+margin-bottom:20px;
 }
 
-.subtitle{
-margin-top:20px;
-max-width:700px;
-line-height:1.7;
-opacity:.75;
-font-size:17px;
+.hero p{
+line-height:1.6;
 }
 
-/* BUTTON */
 .btn{
-margin-top:30px;
-padding:14px 30px;
+margin-top:20px;
+padding:14px 28px;
+background:#22c55e;
 border:none;
-background:linear-gradient(90deg,var(--green-dark),var(--green-light));
 color:white;
-border-radius:50px;
+border-radius:30px;
 cursor:pointer;
-font-weight:600;
-transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-}
+/* SECTION */
 
-/* SECTIONS */
 section{
-padding:120px 10%;
+padding:100px 8%;
 }
 
 .title{
 font-size:32px;
 margin-bottom:40px;
-font-weight:800;
-color:var(--green-dark);
+color:#16a34a;
 }
 
 /* GRID */
+
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 /* CARD */
+
 .card{
 background:white;
-padding:28px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.06);
-border-top:4px solid var(--green-light);
-transition:.3s;
+padding:30px;
+border-radius:16px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
-.card:hover{
-transform:translateY(-6px);
+.card h3{
+margin-bottom:10px;
 }
 
-/* ICON */
-.icon{
-font-size:26px;
-color:var(--green-dark);
-margin-bottom:12px;
+/* IMAGE BLOCK */
+
+.image-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
 }
 
-/* IMAGE */
-.img{
+.image-section img{
 width:100%;
-height:160px;
-border-radius:14px;
-object-fit:cover;
-margin-bottom:15px;
-}
-
-/* CONTACT */
-.contact{
-background:white;
-padding:40px;
 border-radius:20px;
-border-left:6px solid var(--green-dark);
-line-height:1.8;
 }
 
 /* FOOTER */
+
 footer{
-text-align:center;
 padding:40px;
-opacity:.6;
+text-align:center;
+background:#f8fafc;
 }
-
-#gallery{display:none;margin-top:30px;}
-
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- NAV -->
 <nav>
-<h1>KLASCAM</h1>
+<h2>KLASCAM</h2>
+
 <div>
-<a href="#home">Home</a>
-<a href="#diensten">Diensten</a>
-<a href="#why">Waarom</a>
-<a href="#contact">Contact</a>
+<a href="#">Home</a>
+<a href="#">Schoolfotografie</a>
+<a href="#">Werkwijze</a>
+<a href="#">Contact</a>
 </div>
 </nav>
 
-<!-- TOP BAR -->
-<div class="topbar">
-<input id="code" placeholder="Code invoeren">
-<button onclick="checkCode()">Bestellen</button>
-</div>
-
 <!-- HERO -->
-<section id="home" class="hero">
+
+<section class="hero">
+
+<div class="hero-content">
 
 <h1>Professionele Schoolfotografie</h1>
 
-<p class="subtitle">
-Maken we herinneringen van morgen.  
-Wij creëren moderne en professionele schoolfoto’s met een frisse groene stijl.  
-Betrouwbaar, snel en volledig zorgeloos.
+<p>
+Wij creëren moderne schoolfoto's met professionele uitstraling.
+Van individuele portretten tot groepsfoto’s.
 </p>
 
-<button class="btn">Vraag een offerte aan</button>
+<button class="btn">Offerte aanvragen</button>
+
+</div>
+
 </section>
 
 <!-- SERVICES -->
-<section id="diensten">
-<h2 class="title">Wat wij voor u doen</h2>
+
+<section>
+
+<h2 class="title">Schoolfotografie voor elke school</h2>
 
 <div class="grid">
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
-<div class="icon"><i class="fa-solid fa-clipboard-list"></i></div>
-<h3>Volledige organisatie</h3>
-<p>Alles wordt professioneel gepland en geïntegreerd met schoolsystemen.</p>
+<h3>Leerlingenfoto</h3>
+<p>Individuele portretten met moderne achtergrond en professionele belichting.</p>
 </div>
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
-<div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
-<h3>Eenvoudig bestelproces</h3>
-<p>Ouders bestellen online snel en veilig met directe toegang.</p>
+<h3>Groepsfoto</h3>
+<p>Klassenfoto's georganiseerd en professioneel uitgevoerd.</p>
 </div>
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32">
-<div class="icon"><i class="fa-solid fa-camera"></i></div>
-<h3>Uitstekende kwaliteit</h3>
-<p>Professionele studio apparatuur en moderne nabewerking.</p>
-</div>
-
-<div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
-<div class="icon"><i class="fa-solid fa-headset"></i></div>
-<h3>Ondersteuning</h3>
-<p>Snelle hulp voor ouders en scholen.</p>
+<h3>Online bestellen</h3>
+<p>Ouders bestellen eenvoudig via persoonlijke code.</p>
 </div>
 
 </div>
+
+</section>
+
+<!-- IMAGE SECTION -->
+
+<section class="image-section">
+
+<img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80">
+
+<div>
+
+<h2 class="title">Professioneel en zorgeloos</h2>
+
+<p>
+Wij verzorgen de volledige organisatie van schoolfotografie.
+Van planning tot levering.
+</p>
+
+</div>
+
 </section>
 
 <!-- WHY -->
-<section id="why">
-<h2 class="title">Waarom kiezen voor Klascam?</h2>
+
+<section>
+
+<h2 class="title">Waarom Klascam</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
-<h3>Betrouwbaarheid</h3>
-<p>Professionele fotografen met ervaring in scholen.</p>
+<h3>Professionele fotografen</h3>
+<p>Ervaren team gespecialiseerd in schoolfotografie.</p>
 </div>
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-bolt"></i></div>
-<h3>Snelheid</h3>
-<p>Snelle levering en efficiënte workflow.</p>
+<h3>Snelle levering</h3>
+<p>Foto’s snel beschikbaar voor ouders.</p>
 </div>
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-star"></i></div>
-<h3>Kwaliteit</h3>
-<p>Premium resultaten met moderne stijl.</p>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-sliders"></i></div>
-<h3>Flexibel</h3>
-<p>Oplossingen op maat voor elke school.</p>
+<h3>Hoge kwaliteit</h3>
+<p>Premium afdrukken en digitale bestanden.</p>
 </div>
 
 </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-<h2 class="title">Contact</h2>
-
-<div class="contact">
-Email: info@klascam.nl<br>
-Telefoon: 06 00000000<br>
-Nederland
-</div>
 </section>
 
 <footer>
-© 2026 Klascam - Schoolfotografie
+© Klascam Schoolfotografie
 </footer>
-
-<script>
-function checkCode(){
-let code=document.getElementById("code").value;
-
-if(code==="KLAS123"){
-alert("Toegang OK ✔");
-}else{
-alert("Foute code");
-}
-}
-</script>
 
 </body>
 </html>
