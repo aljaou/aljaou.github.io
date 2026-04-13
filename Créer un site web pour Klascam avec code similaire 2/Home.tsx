@@ -1,0 +1,552 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { CheckCircle2, Zap, Printer, Mail, Phone, MapPin, ArrowRight, Star, Users, Sparkles } from "lucide-react";
+import { useState } from "react";
+
+/**
+ * Klascam - Professionele Schoolfotografie
+ * Design Philosophy: Modern Minimalist with Warm Accents
+ * Color Palette: Sage Green (primary), Warm Cream (background), Deep Navy (text), Soft Coral (accents)
+ * Typography: Plus Jakarta Sans (display), Inter (body)
+ * Images: Professional school photography assets
+ */
+
+export default function Home() {
+  const [formStep, setFormStep] = useState(1);
+  const [formData, setFormData] = useState({
+    school: "",
+    level: "",
+    date: "",
+    name: "",
+    website: "",
+  });
+
+  const handleFormChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleNextStep = () => {
+    if (formStep < 4) {
+      setFormStep(formStep + 1);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log("Form submitted:", formData);
+    alert("Hartelijk dank! We zullen spoedig contact met u opnemen.");
+    setFormStep(1);
+    setFormData({ school: "", level: "", date: "", name: "", website: "" });
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+        <div className="container flex items-center justify-between h-16">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">K</span>
+            </div>
+            <span className="font-bold text-lg text-foreground">Klascam</span>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#services" className="text-foreground hover:text-primary transition-colors">
+              Diensten
+            </a>
+            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+              Contact
+            </a>
+            <a href="#quote" className="text-foreground hover:text-primary transition-colors">
+              Aanvraag
+            </a>
+            <a href="mailto:info@klascam.nl" className="text-foreground hover:text-primary transition-colors">
+              info@klascam.nl
+            </a>
+          </div>
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            Aanvraag indienen
+          </Button>
+        </div>
+      </nav>
+
+      {/* Hero Section with Image */}
+      <section className="relative py-0 md:py-0 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
+        <div className="relative h-[500px] md:h-[600px] w-full">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029497345/QxTHD8dXQXw8Ydh3QRyM6x/klascam-hero-school-LXkdraKEy7wiAyajE5fxmm.webp"
+            alt="Professional school photography"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+          
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="container relative z-10 text-center text-white">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Professionele Schoolfotografie
+              </h1>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Herinneringen vastleggen die voor altijd blijven
+              </h2>
+              <p className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto">
+                Wij creëren prachtige portretten en groepsfoto's voor uw school. Professioneel, betrouwbaar en zorgeloos.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Vraag een offerte aan
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                  Ouders: Bestel hier
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 md:py-32 bg-white">
+        <div className="container">
+          <h2 className="text-4xl font-bold text-center mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+            Wat wij voor u doen
+          </h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+            Klascam biedt een compleet pakket voor schoolfotografie met persoonlijke aandacht en kwaliteit
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {/* Service 1 */}
+            <Card className="p-8 border border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Volledige Organisatie
+              </h3>
+              <p className="text-muted-foreground">
+                Wij verzorgen de gehele organisatie zodat uw school zich kan concentreren op onderwijs. Foto's worden per leerling geregistreerd en kunnen naadloos worden geïntegreerd met schoolmanagementsystemen.
+              </p>
+            </Card>
+
+            {/* Service 2 */}
+            <Card className="p-8 border border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Eenvoudig Bestelproces
+              </h3>
+              <p className="text-muted-foreground">
+                Ouders kunnen gemakkelijk online foto's bestellen en betalen. Wij bieden aantrekkelijke pakketten met snelle levering. Alle bestellingen voldoen aan de nieuwste privacyrichtlijnen.
+              </p>
+            </Card>
+
+            {/* Service 3 */}
+            <Card className="p-8 border border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <Printer className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Uitstekende Kwaliteit
+              </h3>
+              <p className="text-muted-foreground">
+                Onze fotografen werken met professionele apparatuur en alle afdrukken worden verzorgd in onze eigen faciliteit. Dit garandeert consistente, hoogwaardige resultaten voor elke bestelling.
+              </p>
+            </Card>
+
+            {/* Service 4 */}
+            <Card className="p-8 border border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <Mail className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Deskundig Ondersteuning
+              </h3>
+              <p className="text-muted-foreground">
+                Ons team staat klaar om vragen te beantwoorden en ouders te helpen bij het bestellen. We bieden vriendelijke en snelle ondersteuning voor een soepel verloop.
+              </p>
+            </Card>
+          </div>
+
+          {/* Differentiators */}
+          <div className="bg-primary/5 rounded-xl p-12">
+            <h3 className="text-3xl font-bold text-center mb-12 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+              Waarom kiezen voor Klascam?
+            </h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <h4 className="text-xl font-bold text-foreground mb-2">Betrouwbaarheid</h4>
+                <p className="text-muted-foreground">Ervaren fotografen die uw school kennen en begrijpen</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <h4 className="text-xl font-bold text-foreground mb-2">Snelheid</h4>
+                <p className="text-muted-foreground">Snelle verwerking en levering van alle bestellingen</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <h4 className="text-xl font-bold text-foreground mb-2">Kwaliteit</h4>
+                <p className="text-muted-foreground">Professionele afdrukken met duurzame materialen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-20 md:py-32 bg-background">
+        <div className="container">
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+            Onze Portefeuille
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029497345/QxTHD8dXQXw8Ydh3QRyM6x/klascam-portrait-kids-kiNqVpugd9rhDdjggxXrJH.webp"
+                alt="Professional children portraits"
+                className="w-full h-80 object-cover"
+              />
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-bold text-foreground mb-2">Portretfoto's</h3>
+                <p className="text-muted-foreground">Professionele individuele portretten van elk kind</p>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029497345/QxTHD8dXQXw8Ydh3QRyM6x/klascam-classroom-group-9rNxffH6uC2kD24z6HDaCU.webp"
+                alt="Professional classroom group photo"
+                className="w-full h-80 object-cover"
+              />
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-bold text-foreground mb-2">Groepsfoto's</h3>
+                <p className="text-muted-foreground">Prachtige klassenfoto's met alle leerlingen en leerkracht</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Section */}
+      <section className="py-20 md:py-32 bg-white">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold mb-6 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Kwaliteit die Telt
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Alle foto's worden door ervaren fotografen genomen en in onze eigen faciliteit afgedrukt. Dit garandeert de hoogste kwaliteit en snelle levering.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Professionele camera's en verlichting</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Eigen drukfaciliteit voor perfecte resultaten</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Duurzame en milieuvriendelijke materialen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Snelle verwerking en levering</span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-xl">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029497345/QxTHD8dXQXw8Ydh3QRyM6x/klascam-printing-quality-F7RQw76MBbBYUVqTSiUTeT.webp"
+                alt="High quality photo prints"
+                className="w-full h-96 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 md:py-32 bg-background">
+        <div className="container">
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+            Flexibele Opties
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-8 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                Voor Scholen
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Digitale en fysieke bestellingen mogelijk</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Integratie met populaire schoolsystemen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Persoonlijke naamgeving per leerling</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Beschikbaar het hele jaar door</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Archief van vorige jaren beschikbaar</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground">Volledige naleving van privacywetgeving</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="space-y-8">
+                <div className="bg-white p-8 rounded-xl border border-border">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h4 className="text-xl font-bold text-foreground mb-4" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                    Technische Details
+                  </h4>
+                  <p className="text-muted-foreground mb-4">Professionele uitvoering</p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Geavanceerde fotoapparatuur en verlichting</li>
+                    <li>• Professionele bewerking en retouching</li>
+                    <li>• Eigen drukfaciliteit voor kwaliteitscontrole</li>
+                    <li>• Duurzame en milieuvriendelijke materialen</li>
+                    <li>• Alleen bestellingen worden afgedrukt</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quote Form Section */}
+      <section id="quote" className="py-20 md:py-32 bg-white">
+        <div className="container max-w-2xl">
+          <h2 className="text-4xl font-bold text-center mb-4 text-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+            Vraag een offerte aan
+          </h2>
+          <p className="text-center text-muted-foreground mb-12">
+            Vul het formulier in en ontvang snel een persoonlijke offerte
+          </p>
+
+          <Card className="p-8 border border-border">
+            {/* Progress Indicator */}
+            <div className="flex justify-between mb-8">
+              {[1, 2, 3, 4].map((step) => (
+                <div key={step} className="flex flex-col items-center flex-1">
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold mb-2 transition-colors ${
+                      step <= formStep
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {step}
+                  </div>
+                  <span className="text-xs text-muted-foreground text-center">
+                    {step === 1 && "School"}
+                    {step === 2 && "Type"}
+                    {step === 3 && "Datum"}
+                    {step === 4 && "Gegevens"}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Form Steps */}
+            <div className="space-y-6 mb-8">
+              {formStep === 1 && (
+                <div className="animate-in fade-in">
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Naam van uw school
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Voer de schoolnaam in"
+                    value={formData.school}
+                    onChange={(e) => handleFormChange("school", e.target.value)}
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                  />
+                </div>
+              )}
+
+              {formStep === 2 && (
+                <div className="animate-in fade-in">
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Onderwijsniveau
+                  </label>
+                  <select
+                    value={formData.level}
+                    onChange={(e) => handleFormChange("level", e.target.value)}
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                  >
+                    <option value="">Selecteer een optie</option>
+                    <option value="basis">Basisschool</option>
+                    <option value="voortgezet">Middelbare school</option>
+                    <option value="beide">Beide niveaus</option>
+                  </select>
+                </div>
+              )}
+
+              {formStep === 3 && (
+                <div className="animate-in fade-in">
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Gewenste fotografiedatum
+                  </label>
+                  <input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => handleFormChange("date", e.target.value)}
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                  />
+                </div>
+              )}
+
+              {formStep === 4 && (
+                <div className="animate-in fade-in space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Schoolnaam
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Schoolnaam"
+                      value={formData.school}
+                      onChange={(e) => handleFormChange("school", e.target.value)}
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Website (optioneel)
+                    </label>
+                    <input
+                      type="url"
+                      placeholder="https://www.uw-school.nl"
+                      value={formData.website}
+                      onChange={(e) => handleFormChange("website", e.target.value)}
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-4">
+              {formStep > 1 && (
+                <Button
+                  variant="outline"
+                  onClick={() => setFormStep(formStep - 1)}
+                  className="flex-1"
+                >
+                  Terug
+                </Button>
+              )}
+              {formStep < 4 ? (
+                <Button
+                  onClick={handleNextStep}
+                  disabled={
+                    (formStep === 1 && !formData.school) ||
+                    (formStep === 2 && !formData.level) ||
+                    (formStep === 3 && !formData.date)
+                  }
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Volgende
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleSubmit}
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Verzenden
+                </Button>
+              )}
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 md:py-32 bg-primary text-primary-foreground">
+        <div className="container">
+          <h2 className="text-4xl font-bold text-center mb-16 text-primary-foreground" style={{ fontFamily: "Plus Jakarta Sans" }}>
+            Neem contact op
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="text-center">
+              <Mail className="w-8 h-8 mx-auto mb-4" />
+              <h3 className="font-bold mb-2">E-mail</h3>
+              <a href="mailto:info@klascam.nl" className="hover:opacity-80 transition-opacity">
+                info@klascam.nl
+              </a>
+            </div>
+            <div className="text-center">
+              <Phone className="w-8 h-8 mx-auto mb-4" />
+              <h3 className="font-bold mb-2">Telefoon</h3>
+              <a href="tel:+31612345678" className="hover:opacity-80 transition-opacity">
+                +31 (0)6 12 345 678
+              </a>
+            </div>
+            <div className="text-center">
+              <MapPin className="w-8 h-8 mx-auto mb-4" />
+              <h3 className="font-bold mb-2">Locatie</h3>
+              <p>Amsterdam, Nederland</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-foreground text-background py-12">
+        <div className="container">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold">K</span>
+                </div>
+                <span className="font-bold">Klascam</span>
+              </div>
+              <p className="text-background/70">Professionele schoolfotografie</p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Navigatie</h4>
+              <ul className="space-y-2 text-background/70">
+                <li><a href="#services" className="hover:text-background transition-colors">Diensten</a></li>
+                <li><a href="#quote" className="hover:text-background transition-colors">Aanvraag</a></li>
+                <li><a href="#contact" className="hover:text-background transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <p className="text-background/70">info@klascam.nl</p>
+              <p className="text-background/70">+31 (0)6 12 345 678</p>
+            </div>
+          </div>
+          <div className="border-t border-background/20 pt-8 text-center text-background/70">
+            <p>&copy; 2026 Klascam. Alle rechten voorbehouden.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
